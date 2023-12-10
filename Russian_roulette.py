@@ -19,7 +19,7 @@ class RussianRouletteGame:
         self.sound_shot = pygame.mixer.Sound("shot.wav")
         self.sound_empty = pygame.mixer.Sound("empty.wav")
 
-        self.bullet_position = random.randint(1, 6)
+        self.bullet_position = random.randint(1, 2)
         self.text_id = None  # Идентификатор текста для последующего удаления
 
     def spin_chamber(self):
@@ -27,7 +27,7 @@ class RussianRouletteGame:
         if self.text_id:
             self.canvas.delete(self.text_id)
 
-        result = random.randint(1, 6)
+        result = random.randint(1, 2)
         if result == self.bullet_position:
             self.text_id = self.canvas.create_text(150, 100, text="Выстрел!", font=("Helvetica", 16), fill="red")
             self.play_sound(self.sound_shot)
